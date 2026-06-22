@@ -7,10 +7,10 @@ The report is on the topic of Hydrodynamic Stability, with a focus on numerical 
 - 86% mark for this dissertation
 - Awarded The Mathematical Sciences 4H Project Prize 2022-23 for the best dissertation of my year group
 
-## Acknowledgements
-I’d like to thank my project supervisor, Dr Laura Currie for her encouragement and guidance
-throughout this project.
-
 ## Important Links
 - To read the report ([PDF link](https://github.com/OscarRummery/Project-IV--Report/blob/47dbfbd5c9662859c41eebd327b55b70ce9bbd9d/_main.pdf))
 - To view and run the code behind the numerical methods ([Code link](https://github.com/OscarRummery/Project-IV--Code))
+
+## Acknowledgements
+I’d like to thank my project supervisor, Dr Laura Currie for her encouragement and guidance
+throughout this project.
