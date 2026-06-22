@@ -1,0 +1,67 @@
+\chapter{Code}
+
+These appendices contain all the code used to generate the figures and results seen throughout this project. Unless stated in the comments of the code, this code is the author's own work. Readers interested in running the code themselves can find it in the following  \href{https://github.com/OscarRummery/projectIV}{\textcolor{blue}{GitHub repository}}.
+
+The code listed is not necessarily in the order it was used in the text. A recommended starting point is to run the \codeword{tau\_tester.py} program in Appendix \ref{code:tautester} which will allow you to test all three methods of different orders and will also return the critical eigenvalue for a given flow.
+
+\section{.eps Saver}
+This is just a simple program used to save the plots generated as .eps files. A lot of the programs use this code to display the results, and as such anyone wishing to run these needs to have \LaTeX installed on their machine. 
+
+\lstinputlisting{code/epssaver.py}
+\newpage
+
+\section{Chebyshev Python Class} \label{code:chebyshevclass}
+\lstinputlisting{code/chebyshev.py}
+\newpage
+
+\section{Chebyshev Plotter} \label{code:chebyshevplotter}
+\label{code:chebyplotter}
+\lstinputlisting{code/chebyshev_plotter.py}
+\newpage
+
+\section{Chebyshev Function Approximator} \label{code:funcapprox}
+\lstinputlisting{code/function_approx.py}
+\newpage
+
+\section{Tau Matrices} \label{code:tau_matrices}
+\lstinputlisting{code/tau_matrices.py}
+\newpage
+
+\section{Tau Method Class} \label{code:tauclass} 
+\lstinputlisting{code/chebyshev_tau.py}
+\newpage
+
+\section{Fourth Order Method} \label{code:fourthorder}
+\lstinputlisting{code/D4method.py}
+\newpage
+
+\section{Second Order Method} \label{code:secondorder}
+\lstinputlisting{code/D2method.py}
+\newpage
+
+\section{First Order Method} \label{code:firstorder}
+\lstinputlisting{code/D1method.py}
+\newpage
+
+\section{Tau Method Tester} \label{code:tautester}
+\lstinputlisting{code/tau_tester.py}
+\newpage
+
+\section{Tau Method Time Comparison} \label{code:timecomp}
+\lstinputlisting{code/time_comparison.py}
+\newpage
+
+% \section{Error In Critical Eigenvalue} \label{code:error}
+% \lstinputlisting{code/crit_eig_error.py}
+% \newpage
+
+\section{Eigenfunction Computation} \label{code:eigenfunction}
+\lstinputlisting{code/eigenfunction.py}
+\newpage
+
+\section{Streamfunction Computation} \label{code:streamfunction}
+\lstinputlisting{code/streamfunction.py}
+\newpage
+
+\section{Critical Reynolds Number Computation} \label{code:criticalR}
+\lstinputlisting{code/crit_R.py}

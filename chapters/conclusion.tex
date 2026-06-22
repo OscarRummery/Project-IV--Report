@@ -1,0 +1,54 @@
+\chapter{Conclusion}
+\label{chap:conc}
+
+\section{Summary of results}
+To conclude this report, let us summarise what has been shown. To begin, we introduced two classic types of plane flow, plane Poiseuille flow and plane Couette flow. We then used the governing equations for a plane channel flow to derive an important equation for linear stability, the Orr-Sommerfeld equation. The important parameters of the Orr-Sommerfeld equation were the Reynolds number $R$, the wavenumber $\al$ and its complex eigenvalue $ c$. From examining the Orr-Sommerfeld equation, we determined a flow must be unstable if it has an eigenvalue with an imaginary part greater than $0$.
+
+From here we derived a few analytic bounds on the stability of a flow, the bounds first derived by \citet{synge1938hydrodynamical} and then the improved bounds derived by \citet{joseph1968eigenvalue, joseph1969eigenvalue}. When compared, Joseph's bounds had a higher minimum point (critical $R$ value) than Synge's bounds. From this, we can conclude that a more accurate bound on stability would likely have a larger critical $ R$ value since these bounds were extremely approximate. To get a better bound on stability and to enable us to test whether a flow is stable for a specific value of $R$, we turned to a numerical method based on Chebyshev polynomials.
+
+We showed that not only do Chebyshev polynomials accurately approximate functions, but they also have several extremely useful recursive relations for their derivatives. These relations allowed us to represent the differentiation of a function by multiplying a vector of coefficients by a differentiation matrix. We also needed a way to represent the basic flow of plane Poiseuille and plane Couette flow, which was done by the  $P $ and $Q $ matrices of \citet{bukhari1997spectral}. We then showed that we could form a generalised eigenvalue problem by representing the whole fourth-order Orr-Sommerfeld equation using one matrix. However, as the matrix involved had terms that grew extremely fast we discussed two alternative methods. By splitting the Orr-Sommerfeld equation into two second-order differential equations or even four first-order differential equations, represented in a block matrix form. These two additional methods had matrices with slower-growing elements, and therefore higher numerical accuracy. To solve our eigenvalue problem, we implemented these methods in Python and used the implementation of the QZ algorithm of \citet{moler1973algorithm} to get our system's eigenvalues.
+
+When applied to Poiseuille flow, all of the methods were able to produce consistent spectra in classic cases with $R< 10000$. From these spectra, we were able to determine that for low values of $R$, Poiseuille flow is stable, whereas it is unstable for $R$ larger than a certain critical value. Both the first and second-order methods were able to reproduce the value for the critical eigenvalue as calculated by \citet{orszag1971accurate}, however, the fourth-order method was unable to produce this value at any point.
+
+When applied to Couette flow, we observed a large difference in the spectrum produced by each method, with the fourth-order method diverging particularly far from the expected spectrum. Each method was also significantly more sensitive to changes in the polynomial count.
+
+In both cases, when $R$ or $M $ became large, a triangle (or diamond) of instability formed, showing that numerical error was present. While it was a smaller triangle for more accurate methods, for higher values of $R$ there was no value of $M$ for which the triangle disappeared. This indicates that these methods do not work very well for high $R$, i.e. less viscous fluids. We also observed that if the value of $M $ was too low, the eigenvalues lower down the spectrum (i.e. with imaginary parts much below zero) would split away from the straight branch expected. However, for determining the critical eigenvalue of a flow it was better to use a lower, but not too low value of $M$, to not lose accuracy to numerical error.
+
+We then showed that our method can be used to calculate the eigenfunction for a flow. To verify this, we compared it with the computed eigenfunction for the critical mode of $R = 10000$, $ \al = 1$ of Poiseuille flow by \citet{thomas1953stability}. We verified that this eigenfunction does satisfy our boundary conditions, showing that it does satisfy both the Orr-Sommerfeld equation and its boundary conditions. We were also able to use this eigenfunction to get a streamfunction for this mode.
+
+The final result of the report was a bound on stability computed using a bisection method. We were able to get that the critical Reynolds number for plane Poiseuille flow is $ R = 5772.22$ which matches up with the value found by \citet{orszag1971accurate}. While a critical value of $R$ for Couette flow has been mentioned in some literature such as \citet{bukhari1997spectral}, this could not be reproduced by our methods. Our method concluded that Couette flow is always stable which is the accepted norm as mentioned in \citet{trefethen1993hydrodynamic}.
+
+\section{Application of Results}
+
+How do these results relate to flows in the real world? The main conclusion we can draw is that for both Poiseuille and Couette flow, there appears to be a Reynolds number below which the flow is completely stable. We can use this to suggest possible ways in which a flow could be stabilised. For example, let's say we have Poiseuille flow in pipe flowing at a rate of 1 metre per second. Distilled water has a kinematic viscosity of about $ 1.0038e-006 $ metres squared per second at 20 degrees Celsius (from this table \href{https://www.engineersedge.com/fluid_flow/kinematic-viscosity-table.htm}{\textcolor{blue}{here}}). For this flow to have a Reynolds number below the critical value of 5772.22 we must have a characteristic length of below 0.00577222 metres or 5.77222 millimetres. If we recall the definition of the characteristic length in Chapter \ref{chap:governing} then we recall that this is half of the width of our channel i.e. its radius, implying that water flowing at a velocity of 1 metre per second at 20 degrees Celsius through a pipe with a radius of less than 5.77222 mm would be a stable Poiseuille flow.
+
+If however, we were considering a flow of kerosene at the same speed and temperature, we would be able to pass it stably through a pipe with a radius of roughly 15.6 mm. This is because kerosene has a higher kinematic viscosity of around $2.71e-006$ metres squared per second.
+
+Our method has shown that flows with a low Reynolds number are more stable than those with a high Reynolds number. We can therefore conclude that our three variables (characteristic velocity, characteristic length and kinematic viscosity) have the following effects on stability
+\begin{enumerate}
+    \item High-velocity flows are less stable than low-velocity flows,
+    \item Flows travelling through a wide channel are less stable than flows travelling through a thin channel,
+    \item Flows of high viscosity fluid are more stable than flows of low viscosity fluids.
+\end{enumerate}
+
+\section{Further Research}
+
+The numerical method in this report is the Tau method of \citet{lanczos1988applied}. However, this was not the only method that we could have used. Another method is the Chebyshev collocation method. In this method, the points in both the differentiation matrices and the vectors are points in physical space \citep{canuto2007spectral}. While this method may seem more intuitive and therefore preferable, \citet{bukhari1997spectral} notes that this method cannot be used to represent diverging series, and can be more susceptible to round-off error if the problem is not well-posed. A proper comparison of these methods for the case of Poiseuille and Couette flow would have been interesting and would be a good next step for this project if it were to continue.
+
+This numerical method can also be used to analyse more complex flows, such as a combination of Poiseuille and Couette flow and multi-layered analysis. In \citet{bukhari1997spectral}, these methods are used to solve problems in convection in magnetic and multi-layered cases. In \citet{antar1976eigenvalue}, the method is applied to another classic case, the Blasius boundary layer flow. Most flow profiles that satisfy the governing equations for plane channel flow can be used, as all that needs to be changed are the $ P $ and $Q$ matrices. 
+
+Finally, a discussion of the significance of the critical Reynolds number is in order. As pointed out in \citet{trefethen1993hydrodynamic}, experimentally instability is seen at much lower Reynolds numbers than the critical Reynolds number would suggest. Both Couette and Poiseuille flow show instability at $R$ values in the hundreds in experiments. When considering a culprit for this inaccuracy, our first thought would be that these bounds were on linear stability, implying that maybe the non-linear terms are to blame for these instabilities. However, \citet{trefethen1993hydrodynamic} points out that these are non-modal instabilities and therefore the issue lies with the normal mode analysis and eigenvalue method itself. 
+
+
+
+% \begin{itemize}
+%     \item Summarize analytical findings
+%     \item Summarize the advantages and disadvantages of each numerical method
+%     \item Discuss Tau vs Collocation methods
+%     \item Discuss the significance of $R_\text{crit}$ \cite{trefethen1993hydrodynamic}, \cite{schmid2002stability}
+%     \item Discuss applications of these methods to more complex stability analyses such as
+%     \begin{itemize}
+%         \item Stability analysis of multilayered flow
+%         \item Blasius flow/jets
+%     \end{itemize}
+% \end{itemize}

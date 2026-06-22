@@ -1,0 +1,166 @@
+\chapter{Deriving the Orr-Sommerfeld equation}
+\label{chap:oseq}
+This section derives the Orr-Sommerfeld equation and the results leading to it by linearisation of the governing equations for viscous flow and the use of a stream function solution. The derivation will largely follow the format and processes set out in \citet{drazin2004hydrodynamic} with details and working filled in.
+
+\section{Linearising the governing equations}
+We can linearise these equations by writing 
+\begin{align}
+    \mathbf{u}(\mathbf{x}, t) &= U(z) \mathbf{i} + \mathbf{u}'(\mathbf{x}, t), \nonumber\\
+    p(\mathbf{x}, t) &= const. + p'(\mathbf{x}, t)
+\end{align}
+
+\textbf{need to double check the ansatz used for P here}
+
+and discarding any terms that are non-linear in $ \mathbf{u}' $ or  $ p' $.
+Substituting these forms into \eqref{dlessgoveq} will allow us to find the linearised forms of our governing equations. For the continuity equation, we get
+\begin{equation}
+    0 = \div{\mathbf{u}} =  \div{( U \mathbf{i} + \mathbf{u}'(\mathbf{x}, t))} = \div{\mathbf{u}'}
+\label{contlin}
+\end{equation} 
+where the term $ \div{U \mathbf{i}} $ vanishes as $ U $ is a function of $ z $ only.
+For the Navier-Stokes equation, we linearise the various necessary results separately for readability. 
+
+For $ \pdv{\mathbf{u}}{t} $, 
+\begin{equation}
+    \pdv{\mathbf{u}}{t} = \pdv{}{t} (U(z) \mathbf{i} + \mathbf{u}'(\mathbf{x}, t)) = \pdv{\mathbf{u}'}{t}.
+\end{equation}
+Similarly
+\begin{align}
+    \mathbf{u} \cdot \nabla \mathbf{u} &= (U \mathbf{i} + \mathbf{u}' (\mathbf{x}, t)) \cdot \nabla (U \mathbf{i} + \mathbf{u}' (\mathbf{x}, t)) \nonumber\\
+    &= (U \mathbf{i} + \mathbf{u}' (\mathbf{x}, t)) \cdot (\nabla \mathbf{u}' + \nabla U) \nonumber\\
+    &= U \mathbf{i} \cdot \nabla \mathbf{u}' + \mathbf{u}' \cdot \nabla \mathbf{u}' + \mathbf{u}' \nabla U \mathbf{i} + U \mathbf{i} \cdot \nabla U \mathbf{i}.
+\end{align}
+We now omit $ \mathbf{u}' \cdot \nabla \mathbf{u}' $ as it is quadratic in $ \mathbf{u}' $, and by letting $ \mathbf{u}' = (u', v', w') $ we are left with
+\begin{equation}
+    \mathbf{u} \cdot \nabla \mathbf{u} = U \pdv{\mathbf{u}'}{x} + w' \frac{\text{d}U}{\text{d}z} \mathbf{i}.
+\end{equation}
+For the right-hand side we get
+\begin{align}
+    \nabla p &= \nabla (const. + p') = -\nabla p', \nonumber\\
+    \Delta \mathbf{u} &= \Delta (U \mathbf{i} + \mathbf{u}' (\mathbf{x}, t)) \nonumber\\
+    &= \div{\nabla (U \mathbf{i} + \mathbf{u}' (\mathbf{x}, t))} \nonumber\\
+    &= \div{\nabla \mathbf{u}'} = \Delta \mathbf{u}'.
+\end{align}
+We can now substitute these into the Navier-Stokes equation to get its linearised form:
+\begin{equation}
+    (\pdv{}{t} + U \pdv{}{x}) \mathbf{u}' + w' \frac{\text{d}U}{\text{d}z} \mathbf{i} = - \nabla p' + R^{-1} \Delta \mathbf{u}'
+\label{nslin}
+\end{equation}
+
+\section{Normal mode analysis of our linearised equations}
+Consider as in \citet{drazin2004hydrodynamic} the normal mode ansatz
+\begin{align}
+    \mathbf{u}' ( \mathbf{x}, t) &= \hat{\mathbf{u}}(z) \exp{i(\alpha x + \beta y - \alpha c t)}, \nonumber\\
+    p'(\mathbf{x}, t) &= \hat{p}(z) \exp{i(\alpha x + \beta y - \alpha c t)}.
+\label{osansatz}
+\end{align}
+This ansatz is derived from the fact that the coefficients in our linearised equations \eqref{contlin} and \eqref{nslin} are only dependent on $ z $. In this ansatz $ \al$, $ \beta$ are the \emph{wavenumbers} of the mode and can take any real value greater than $0 $, and $ c $ denotes the \emph{phase speed} and is a complex number. The value of the phase speed is very important when it comes to analysing the stability of a flow. More details of this will be discussed in Chapter \ref{chap:suffcons}.
+
+As before we let $ \hat{\mathbf{u}} = ( \hat{u}, \hat{v}, \hat{w} ) $.
+
+We now substitute our ansatz \eqref{osansatz} into our linearised governing equations \eqref{contlin} and \eqref{nslin} which gives us
+\begin{gather}
+    0 = \div \mathbf{u}' = \div \hat{\mathbf{u}}(z) \exp{i(\alpha x + \beta y - \alpha c t)} \nonumber\\
+    = i \alpha \hat{u} \exp{i(\alpha x + \beta y - \alpha c t)} + i \beta \hat{v} \exp{i(\alpha x + \beta y - \alpha c t)} + \frac{\text{d}\hat{w}}{\text{d}z} \nonumber\\
+    = (i(\alpha \hat{u} + \beta \hat{v}) + \frac{\text{d}\hat{w}}{\text{d}z})\exp{i(\alpha x + \beta y - \alpha c t)} \nonumber\\
+    \implies i(\alpha \hat{u} + \beta \hat{v}) + \frac{\text{d}\hat{w}}{\text{d}z} = 0.
+\label{os1}
+\end{gather}
+For the left-hand side of the Navier-Stokes equation, we get
+\begin{gather}
+    (\pdv{}{t} + U \pdv{}{x}) \mathbf{u}' + w' \frac{\text{d}U}{\text{d}z} \mathbf{i} = -i \alpha c \mathbf{u}' + i \alpha U \mathbf{u}' + \frac{\text{d}U}{\text{d}z} \hat{w} \mathbf{i} \nonumber\\
+    = (i \alpha ( U - c) \hat{\mathbf{u}} + \frac{\text{d}U}{\text{d}z} \hat{w} \mathbf{i} \exp{i(\alpha x + \beta y - \alpha c t)},
+\end{gather}
+and for the right-hand side we get
+\begin{gather}
+    -\nabla p' + R^{-1} \Delta \mathbf{u}' = \nonumber\\ [-(i \alpha \hat{p} \mathbf{i} + i \beta \hat{p} \mathbf{j} + \dv{\hat{p}}{z} \mathbf{k}) + R^{-1} \hat{\mathbf{u}} (- \alpha^2 - \beta^2 - \dv[2]{\hat{\mathbf{u}}}{z})] \exp{i(\alpha x + \beta y - \alpha c t)}.
+\end{gather}
+Equating both sides and cancelling the exponential leaves us with the following 3 equations
+\begin{subequations}
+\begin{align}
+    i \alpha (U - c) \hat{u} + \dv{U}{z} \hat{w} &= -i \alpha \hat{p} - ((\alpha^2 + \beta^2)\hat{u} + \dv[2]{\hat{u}}{z}) R^{-1}, \\
+    i \alpha (U - c) \hat{v} &= -i \beta \hat{p} - ((\alpha^2 + \beta^2)\hat{v} + \dv[2]{\hat{v}}{z}) R^{-1}, \\
+    i \alpha (U - c) \hat{w} &= \dv{\hat{p}}{z} - ((\alpha^2 + \beta^2)\hat{w} + \dv[2]{\hat{w}}{z}) R^{-1}.
+\end{align}   
+\end{subequations}
+Now let $ D = \dv{z} $ for simplicity and rearrange to get
+\begin{subequations}
+\begin{align}
+    &(D^2 - (\alpha^2+\beta^2) - i \alpha R (U - c)) \hat{u} = R (DU) \hat{w} + i \alpha R \hat{p}, \label{os2}\\
+    &(D^2 - (\alpha^2+\beta^2) - i \alpha R (U - c)) \hat{v} = i \beta R \hat{p}, \label{os3}\\
+    &(D^2 - (\alpha^2+\beta^2) - i \alpha R (U - c)) \hat{w} = R D \hat{p} \label{os4}.
+\end{align}
+\end{subequations}
+\section{Reducing our problem to 2 dimensions}
+We can reduce this to a 2-dimensional problem. To begin we combine $ \alpha \eqref{os2} + \beta \eqref{os3} $ to get
+\begin{equation}
+    (D^2 - (\alpha^2+\beta^2) - i \alpha R (U - c)) (\alpha \hat{u} + \beta \hat{v}) = \alpha R (DU) \hat{w} + i \alpha^2 R \hat{p} + i \beta^2 R \hat{p} 
+\label{os5}
+\end{equation}
+Now use the following \emph{Squire's Transformation} \citep{squire1933stability} on equations \eqref{os1}, \eqref{os4} and \eqref{os5} to reduce the problem to a 2-dimensional problem. Let
+\begin{gather}
+    \Tilde{\alpha} = (\alpha^2 + \beta^2)^{1/2},\ \Tilde{\alpha} \Tilde{u} = \alpha \hat{u} + \beta \hat{v},\ \frac{\Tilde{p}}{\Tilde{\alpha}} = \frac{\hat{p}}{\alpha}, \nonumber\\ \Tilde{w} = \hat{w},\ \Tilde{c} = c,\ \Tilde{\alpha} \Tilde{R} = \alpha R.
+\end{gather}
+If we use this transformation then we are left with equations
+\begin{subequations}
+\begin{align}
+    (D^2 - \Tilde{\alpha}^2 - i \Tilde{\alpha} \Tilde{R} (U - \Tilde{c}))  \Tilde{u} &= \Tilde{R} (DU) \Tilde{w} + i \Tilde{\alpha} \Tilde{R} \Tilde{p}, \label{os2d1} \\
+    (D^2 - \Tilde{\alpha}^2 - i \Tilde{\alpha} \Tilde{R} (U - \Tilde{c})) \Tilde{w} &= \Tilde{R} D \Tilde{p}, \label{os2d2} \\
+    i \Tilde{\alpha} \Tilde{u} + D \Tilde{w} &= 0. \label{os2d3}
+\end{align}
+\end{subequations}
+These equations have the same form as equations \eqref{os1}, \eqref{os2}, \eqref{os3}, \eqref{os4} which means we now have a 2 dimensional problem ($ \beta = \hat{v} = 0 $). 
+
+\section{Showing a stream function solution satisfies the Orr-Sommerfeld equation}
+
+It is convenient to use a stream function solution that satisfies
+\begin{equation}
+    u' = \pdv{\psi'}{z}, \ w' = - \pdv{\psi'}{x},  \ (\mathbf{u}' = \curl{\psi' \mathbf{k}}).
+\end{equation}
+Now let $ \psi'(x, z, t) = \phi(z) \exp{i \alpha(x - ct)} $ which leaves us with
+\begin{equation}
+    \hat{u} = D \phi, \  \hat{w} = -i \alpha \phi
+\end{equation}
+as the exponentials cancel out (because $ \beta = 0$). If we put this solution into equation \eqref{os2d3} we get the following
+\begin{equation}
+    i \alpha D \phi - i \alpha D \phi = 0,
+\end{equation}
+so this equation is satisfied. For equations \eqref{os2d1} and \eqref{os2d2} we are left with
+\begin{gather}
+    \frac{(D^2 - \alpha^2 - i \alpha R ( U - c)) D \phi}{i \alpha R} + (DU) \phi = \hat{p}, \label{stream1}\\
+    -i \alpha (D^2 - \alpha^2 - i \alpha R (U - c)) \phi = R D \hat{p}. \label{stream2}
+\end{gather}
+If we differentiate \eqref{stream1} we get
+\begin{gather}
+     \frac{D((D^2 - \alpha^2 - i \alpha R ( U - c)) D \phi)}{i \alpha R} + (D^2 U) \phi + (DU)(D \phi) = D \hat{p}
+\end{gather}
+Equate \eqref{stream1} and \eqref{stream2} to get
+\begin{gather}
+        -i \alpha (D^2 - \alpha^2 - i \alpha R (U - c)) \phi \nonumber\\ = \frac{D((D^2 - \alpha^2 - i \alpha R ( U - c)) D \phi)}{i \alpha} + [(D^2 U) \phi + (DU)(D \phi)] R
+\end{gather}
+Multiplying by $ i \alpha $ and expanding leaves us with 
+\begin{gather}
+    \alpha^2 D^2 \phi - \alpha^4 \phi - i \alpha^3 R (U - c) \phi\nonumber\\  = D^4 \phi - \alpha^2 D^2 \phi + i \alpha R (-( (DU) (D\phi) + U (D^2 \phi)) + c (D^2 \phi) + ((D^2 U) \phi + (DU)(D\phi))) 
+    \nonumber\\ 
+    \implies (D^4 - 2 \alpha^2 D^2 + \alpha^4) \phi = i \alpha R [- \alpha^2 (U - c) \phi + (U - c)D^2\phi - (D^2U)\phi]
+\end{gather}
+Noting that $ (D^2 - \alpha^2)^2 = D^4 - 2 \alpha^2 D^2 + \alpha^4 $ we have that $ \phi $ satisfies the \emph{Orr-Sommerfeld equation}
+\begin{equation}
+    (i \alpha R)^{-1} (D^2 - \alpha^2)^2 \phi = (U - c)(D^2 - \alpha^2)\phi - U'' \phi,
+\label{oseq}
+\end{equation}
+with boundary conditions 
+\begin{equation}
+    \phi(\pm 1) = \phi'(\pm 1) = 0.
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+

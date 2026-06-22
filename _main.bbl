@@ -1,0 +1,121 @@
+\begin{thebibliography}{}
+
+\bibitem[Antar, 1976]{antar1976eigenvalue}
+Antar, B.~N. (1976).
+\newblock The eigenvalue spectrum of the orr-sommerfeld problem.
+\newblock Technical report.
+
+\bibitem[Bukhari, 1997]{bukhari1997spectral}
+Bukhari, A.-F. K.~A. (1997).
+\newblock {\em A Spectral Eigenvalue Method for Multilayred Continuua}.
+\newblock University of Glasgow (United Kingdom).
+
+\bibitem[Canuto et~al., 2007]{canuto2007spectral}
+Canuto, C., Hussaini, M.~Y., Quarteroni, A., and Zang, T.~A. (2007).
+\newblock {\em Spectral methods: evolution to complex geometries and
+  applications to fluid dynamics}.
+\newblock Springer Science \& Business Media.
+
+\bibitem[Dongarra et~al., 1996a]{dongarra1996chebyshev}
+Dongarra, J., Straughan, B., and Walker, D. (1996a).
+\newblock Chebyshev tau-qz algorithm methods for calculating spectra of
+  hydrodynamic stability problems.
+\newblock {\em Applied Numerical Mathematics}, 22(4):399--434.
+
+\bibitem[Dongarra et~al., 1996b]{DONGARRA1996399}
+Dongarra, J., Straughan, B., and Walker, D. (1996b).
+\newblock Chebyshev tau-qz algorithm methods for calculating spectra of
+  hydrodynamic stability problems.
+\newblock {\em Applied Numerical Mathematics}, 22(4):399--434.
+
+\bibitem[Drazin and Reid, 2004]{drazin2004hydrodynamic}
+Drazin, P.~G. and Reid, W.~H. (2004).
+\newblock {\em Hydrodynamic stability}.
+\newblock Cambridge university press.
+
+\bibitem[Fox and Parker, 1968]{fox1968chebyshev}
+Fox, L. and Parker, I.~B. (1968).
+\newblock Chebyshev polynomials in numerical analysis.
+\newblock Technical report.
+
+\bibitem[Herbert, 1977]{herbert1977neutrale}
+Herbert, T. (1977).
+\newblock {\em Die neutrale Fl{\"a}che der ebenen Poiseuille-Str{\"o}mung}.
+\newblock PhD thesis.
+
+\bibitem[Joseph, 1968]{joseph1968eigenvalue}
+Joseph, D.~D. (1968).
+\newblock Eigenvalue bounds for the orr-sommerfeld equation.
+\newblock {\em Journal of Fluid Mechanics}, 33(3):617--621.
+
+\bibitem[Joseph, 1969]{joseph1969eigenvalue}
+Joseph, D.~D. (1969).
+\newblock Eigenvalue bounds for the orr—sommerfeld equation. part 2.
+\newblock {\em Journal of Fluid Mechanics}, 36(4):721--734.
+
+\bibitem[Lanczos, 1988]{lanczos1988applied}
+Lanczos, C. (1988).
+\newblock {\em Applied analysis}.
+\newblock Courier Corporation.
+
+\bibitem[Mack, 1976]{mack1976numerical}
+Mack, L.~M. (1976).
+\newblock A numerical study of the temporal eigenvalue spectrum of the blasius
+  boundary layer.
+\newblock {\em Journal of Fluid Mechanics}, 73(3):497--520.
+
+\bibitem[Moler and Stewart, 1973]{moler1973algorithm}
+Moler, C.~B. and Stewart, G.~W. (1973).
+\newblock An algorithm for generalized matrix eigenvalue problems.
+\newblock {\em SIAM Journal on Numerical Analysis}, 10(2):241--256.
+
+\bibitem[Orr, 1907]{zbMATH02645274}
+Orr, M.~W. (1907).
+\newblock The stability or instability of the steady motions of a perfect
+  liquid and of a viscous liquid.
+\newblock Dublin {Proc}. 27, 9-68. [{Nature} 75, 119.] (1907).
+
+\bibitem[Orszag, 1971]{orszag1971accurate}
+Orszag, S.~A. (1971).
+\newblock Accurate solution of the orr--sommerfeld stability equation.
+\newblock {\em Journal of Fluid Mechanics}, 50(4):689--703.
+
+\bibitem[Pai, 1954]{pai1954generalization}
+Pai, S. (1954).
+\newblock On a generalization of synge’s criterion for sufficient stability
+  of plane parallel flows.
+\newblock {\em Quarterly of Applied Mathematics}, 12(2):203--206.
+
+\bibitem[Rayleigh, 1880]{rayleigh1880stability}
+Rayleigh, L. (1880).
+\newblock On the stability, or instability, of certain fluid motions.
+\newblock {\em Proc. London Math. Soc.}, 9:57--70.
+
+\bibitem[Sommerfeld, 1909]{sommerfeld1909beitrag}
+Sommerfeld, A. (1909).
+\newblock {\em Ein beitrag zur hydrodynamischen erklaerung der turbulenten
+  fluessigkeitsbewegungen}.
+
+\bibitem[Squire, 1933]{squire1933stability}
+Squire, H.~B. (1933).
+\newblock On the stability for three-dimensional disturbances of viscous fluid
+  flow between parallel walls.
+\newblock {\em Proceedings of the Royal Society of London. Series A, Containing
+  Papers of a Mathematical and Physical Character}, 142(847):621--628.
+
+\bibitem[Synge, 1938]{synge1938hydrodynamical}
+Synge, J.~L. (1938).
+\newblock Hydrodynamical stability.
+\newblock {\em Semicentenn. Publ. Amer. Math. Soc}, 2:227--269.
+
+\bibitem[Thomas, 1953]{thomas1953stability}
+Thomas, L. (1953).
+\newblock The stability of plane poiseuille flow.
+\newblock {\em Physical Review}, 91(4):780.
+
+\bibitem[Trefethen et~al., 1993]{trefethen1993hydrodynamic}
+Trefethen, L.~N., Trefethen, A.~E., Reddy, S.~C., and Driscoll, T.~A. (1993).
+\newblock Hydrodynamic stability without eigenvalues.
+\newblock {\em Science}, 261(5121):578--584.
+
+\end{thebibliography}

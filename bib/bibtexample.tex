@@ -1,0 +1,27 @@
+
+
+\documentclass[12pt]{article}
+\usepackage{natbib}
+
+\begin{document}
+
+\title{BibTeX in action}
+\author{Martin J. Osborne}
+\date{2008-1-13}
+
+\maketitle
+
+\section{Introduction}
+This document illustrates the use of BibTeX\@.  You may want to refer to
+\cite{boyd2001chebyshev} or \cite{hussaini1983spectral} or \cite{haidvogel1979accurate}.  Or you may want to cite a
+specific page in a reference, like this: see \citet[p.~199]{boyd2001chebyshev}.  Or
+perhaps you want to cite more than one paper by Maskin: \cite{hussaini1983spectral, haidvogel1979accurate}.
+Or you want to make a parenthetical reference to one or more articles, in which case the \verb+\citealt+ command omits the parentheses around the year (\citealt{haidvogel1979accurate}).
+
+Testing \cite{drazin2004hydrodynamic}
+
+\bibliographystyle{plain}
+
+\bibliography{references}
+
+\end{document}
