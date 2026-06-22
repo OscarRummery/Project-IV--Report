@@ -1,4 +1,4 @@
-# The Hydrodynamic Stability of Viscous Plane Flow
+# Project IV Report: The Hydrodynamic Stability of Viscous Plane Flow
 
 This is the LaTeX report of my dissertation module (Project IV) completed in the 4th year of my MMath degree at Durham University. 
 The report is on the topic of Hydrodynamic Stability, with a focus on numerical methods to solve the Orr-Sommerfeld equations and the computation of the critical Reynolds number.
